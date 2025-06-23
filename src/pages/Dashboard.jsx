@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+import EventCard from "../components/events/EventCard";
 const Dashboard = () => {
   const navigate = useNavigate();
   const handleLogout = () => {
@@ -25,7 +26,9 @@ const Dashboard = () => {
           create event
         </button>
       </div>
-      <p>Welcome! You are logged in.</p>
+      <p className="text-center">Welcome! You are logged in.</p>
+
+      <EventCard />
     </div>
   );
 };

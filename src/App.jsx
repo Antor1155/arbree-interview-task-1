@@ -65,7 +65,15 @@ const App = () => {
         />
         <Route
           path="/create-event"
-          element={isAuthenticated ? <CreateEvent /> : <Navigate to="/login" />}
+          element={
+            isAuthenticated ? (
+              <Layout>
+                <CreateEvent />
+              </Layout>
+            ) : (
+              <Navigate to="/login" />
+            )
+          }
         />
       </Routes>
     </Router>
