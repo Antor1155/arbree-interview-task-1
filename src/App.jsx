@@ -10,6 +10,7 @@ import Dashboard from "./pages/Dashboard";
 import Home from "./pages/Home";
 import Layout from "./components/layout/Layout";
 import { useAuthContext } from "./context/AuthContext";
+import CreateEvent from "./pages/CreateEvents";
 
 const App = () => {
   const { token } = useAuthContext();
@@ -61,6 +62,10 @@ const App = () => {
               <Navigate to="/login" />
             )
           }
+        />
+        <Route
+          path="/create-event"
+          element={isAuthenticated ? <CreateEvent /> : <Navigate to="/login" />}
         />
       </Routes>
     </Router>
