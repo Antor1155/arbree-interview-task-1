@@ -14,7 +14,8 @@ export const useAuth = () => {
       setToken(data.jwtToken);
       return data;
     } catch (err) {
-      setError(err.response?.data?.message || "Login failed");
+      console.log({ err });
+      setError(err?.response?.data?.msg || "Login failed");
       throw err;
     } finally {
       setLoading(false);
@@ -29,7 +30,7 @@ export const useAuth = () => {
       setToken(data.jwtToken);
       return data;
     } catch (err) {
-      setError(err.response?.data?.message || "Registration failed");
+      setError(err?.response?.data?.msg || "Registration failed");
       throw err;
     } finally {
       setLoading(false);
