@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 import api from "../../services/api";
 
-const Dashboard = () => {
+const Dashboard = ({ isDelete = false }) => {
   const [events, setEvents] = useState([]);
 
   useEffect(() => {
@@ -20,6 +20,17 @@ const Dashboard = () => {
     fetchEvents();
   }, []);
 
+  const handleDeleteEvent = async (eventId) => {
+    try {
+      const deleted = await api.delete(`/event/${eventId}`);
+      if (deleted) {
+        setEvents((prev) => prev.filter((e) => e._id !== eventId));
+      }
+    } catch (err) {
+      console.error("Error deleting event:", err);
+    }
+  };
+
   return (
     <div className="p-4">
       <h1 className="text-2xl font-bold mb-4 text-center">All Events</h1>
@@ -33,6 +44,14 @@ const Dashboard = () => {
             />
             <h2 className="text-xl font-semibold">{event.title}</h2>
             <p className="text-gray-700">{event.description}</p>
+            {isDelete && (
+              <button
+                onClick={() => handleDeleteEvent(event._id)}
+                className="bg-red-500 text-white px-4 py-2 rounded"
+              >
+                Delete
+              </button>
+            )}
           </div>
         ))}
       </div>

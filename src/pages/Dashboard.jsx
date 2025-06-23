@@ -28,7 +28,7 @@ const Dashboard = () => {
       </div>
       <p className="text-center">Welcome! You are logged in.</p>
 
-      <EventCard />
+      <EventCard isDelete={true} />
     </div>
   );
 };
