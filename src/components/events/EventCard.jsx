@@ -4,8 +4,12 @@ import { useEffect, useState } from "react";
 
 import api from "../../services/api";
 
-const Dashboard = ({ isDelete = false }) => {
+const Dashboard = ({ isDelete = false, searchEvents = [] }) => {
   const [events, setEvents] = useState([]);
+
+  if (searchEvents.length) {
+    setEvents(searchEvents);
+  }
 
   useEffect(() => {
     const fetchEvents = async () => {
