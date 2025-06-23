@@ -29,8 +29,7 @@ This is the frontend of the Event Management System, built with **React**, **Vit
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/your-username/event-frontend.git
-cd event-frontend
+git clone https://github.com/Antor1155/arbree-interview-task-1
 
 
 # install all required files using npm install
